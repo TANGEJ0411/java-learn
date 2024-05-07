@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
+import object.Point;
+import inherit.*;
 
 class App {
     public static void main(String[] args) {
@@ -82,6 +84,29 @@ class App {
         for (String myChar: arr1){
 	        System.out.println(myChar);
         }
+
+        Point point = new Point(2, 4);
+        // Point類別的point的z類別屬性是private，所以無法直接存取
+        // System.out.println(point.z);
+        point.print();
+
+        Car car1 = new Car(4, "gasoline", "Toyota", "black");
+        // color 是protected，所以可以直接存取
+        //car1.color;
+        // tire 被宣告為final，所以無法改變
+        //car1.tire = 3;
+        System.out.println(car1.tire + " 沒有改");
+        System.out.println(car1.engine + " engine改");
+        // 沒有被宣告為final，所以可以改變
+        car1.engine = "sunshine";
+        System.out.println(car1.engine + " engine有改");
+
+        HybridCar car = new HybridCar(100);
+        // System.out.println(car);
+        car.print();
+        car.printCar();
+        String brand = car.getBrand();
+        System.out.println(brand);
     }
 }
 
