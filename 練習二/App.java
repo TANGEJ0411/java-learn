@@ -3,45 +3,35 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
-import count.*;
+import member.*;
+
+// 物件群組化，把資料也封裝進去
 
 public class App {
     public static void main(String[] args) {
         String[] employeeArr = new String[]{"張三,男,09903001,30000","小胡,男,09803001","李四,男,10903001,35000","小一,女,10904002,28000","小二,女,10904003,40000","小陸,女,10807001,45K"};
-        List <Map<String, String>> employeeList = new ArrayList<>();
-        for (String employee : employeeArr) {
-            String[] employeeInfo = employee.split(",");
-            Map<String, String> employeeMap = new HashMap<>();
-            employeeMap.put("name", employeeInfo[0]);
-            employeeMap.put("sex", employeeInfo[1]);
-            employeeMap.put("empID", employeeInfo[2]);
-            if (employeeInfo.length < 4) {
-                employeeMap.put("pay", "0");
-            }else {
-                employeeMap.put("pay", employeeInfo[3]);
-            }
-            employeeList.add(employeeMap);
-        }
+
+        Member employee = new Member(employeeArr);
+
         // 第一題
         System.out.println("第一題");
-        int maleCount = Count.countGender(employeeList, "男"); 
-        int femaleCount = Count.countGender(employeeList, "女");
+        int maleCount = employee.countGender(employee.employeeList, "男"); 
+        int femaleCount = employee.countGender(employee.employeeList, "女");
         System.out.println("男性人數: " + maleCount + " 女性人數: " + femaleCount);
 
         // 第二題
         System.out.println("第二題");
-        Map<String, Integer> peopleComeMapYear = Count.countCome(employeeList, 3);
+        Map<String, Integer> peopleComeMapYear = employee.countCome(employee.employeeList, 3);
         System.out.println(peopleComeMapYear.entrySet());
 
         // 第三題
         System.out.println("第三題");
-        Map<String, Integer> peopleComeMapMonth = Count.countCome(employeeList, 5);
+        Map<String, Integer> peopleComeMapMonth = employee.countCome(employee.employeeList, 5);
         System.out.println(peopleComeMapMonth.entrySet());
 
         // 第四題
         System.out.println("第四題");
-        Map<String, Integer> salaryList = Count.countSalary(employeeList);
+        Map<String, Integer> salaryList = employee.countSalary(employee.employeeList);
         System.out.println(salaryList.entrySet());
         // System.out.println("20000~35000(不含): " + salaryList.get("20000~35000(不含)"));
         // System.out.println("35000~45000(不含): " + salaryList.get("35000~45000(不含)"));
