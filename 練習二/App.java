@@ -15,23 +15,23 @@ public class App {
 
         // 第一題
         System.out.println("第一題");
-        int maleCount = employee.countGender(employee.employeeList, "男"); 
-        int femaleCount = employee.countGender(employee.employeeList, "女");
+        int maleCount = employee.countGender(employee.getEmployeeList(), "男"); 
+        int femaleCount = employee.countGender(employee.getEmployeeList(), "女");
         System.out.println("男性人數: " + maleCount + " 女性人數: " + femaleCount);
 
         // 第二題
         System.out.println("第二題");
-        Map<String, Integer> peopleComeMapYear = employee.countCome(employee.employeeList, 3);
+        Map<String, Integer> peopleComeMapYear = employee.countCome(employee.getEmployeeList(), 3);
         System.out.println(peopleComeMapYear.entrySet());
 
         // 第三題
         System.out.println("第三題");
-        Map<String, Integer> peopleComeMapMonth = employee.countCome(employee.employeeList, 5);
+        Map<String, Integer> peopleComeMapMonth = employee.countCome(employee.getEmployeeList(), 5);
         System.out.println(peopleComeMapMonth.entrySet());
 
         // 第四題
         System.out.println("第四題");
-        Map<String, Integer> salaryList = employee.countSalary(employee.employeeList);
+        Map<String, Integer> salaryList = employee.countSalary(employee.getEmployeeList());
         System.out.println(salaryList.entrySet());
         // System.out.println("20000~35000(不含): " + salaryList.get("20000~35000(不含)"));
         // System.out.println("35000~45000(不含): " + salaryList.get("35000~45000(不含)"));

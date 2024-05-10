@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Member {
-    public List <Map<String, String>> employeeList = new ArrayList<>();
+    private List <Map<String, String>> employeeList = new ArrayList<>();
 
     public Member(String[] employeeArr) {
         for (String employee : employeeArr) {
@@ -22,6 +22,10 @@ public class Member {
             }
             this.employeeList.add(employeeMap);
         }
+    }
+
+    public List<Map<String, String>> getEmployeeList() {
+        return employeeList;
     }
 
     public int countGender (List <Map<String, String>> list, String sex){
